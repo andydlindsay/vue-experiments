@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>DOM Interaction</title>
+
+    <script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1 v-once>{{ title }}</h1>
+        <p>{{ sayHello() }}</p>
+        <a :href=googleUrl target="_blank">Google</a>
+        <a v-bind:href="portfolioUrl" target="_blank">Portfolio</a>
+        <hr>
+        <div v-html="finishedLink"></div>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                title: 'Boxing Day!',
+                googleUrl: 'http://www.google.com',
+                portfolioUrl: 'http://www.andydlindsay.ca',
+                finishedLink: '<a href="https://andydlindsay.github.io/" target="_blank">Another Link</a>'
+            },
+            methods: {
+                sayHello: function() {
+                    this.title = 'Happy Thanksgiving!';
+                    return this.title;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
