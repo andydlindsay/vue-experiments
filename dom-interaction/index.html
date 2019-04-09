@@ -17,6 +17,20 @@
         <a v-bind:href="portfolioUrl" target="_blank">Portfolio</a>
         <hr>
         <div v-html="finishedLink"></div>
+
+        <div>
+            <button v-on:click="increment(2, $event)">Click Me</button>
+            <p>{{ counter }}</p>
+            <p v-on:mousemove="getCoords">
+                Coordinates: {{ x }} / {{ y }}
+                <span style="background-color:aqua;" v-on:mousemove.stop="">DEAD SPOT</span>
+            </p>
+        </div>
+
+        <div>
+            <input v-on:keyup.enter="keypress" type="text">
+            <p>{{ input }}</p>
+        </div>
     </div>
 
     <script>
@@ -26,12 +40,28 @@
                 title: 'Boxing Day!',
                 googleUrl: 'http://www.google.com',
                 portfolioUrl: 'http://www.andydlindsay.ca',
-                finishedLink: '<a href="https://andydlindsay.github.io/" target="_blank">Another Link</a>'
+                finishedLink: '<a href="https://andydlindsay.github.io/" target="_blank">Another Link</a>',
+
+                counter: 0,
+                x: 0,
+                y: 0,
+                input: ''
             },
             methods: {
                 sayHello: function() {
                     this.title = 'Happy Thanksgiving!';
                     return this.title;
+                },
+                increment: function(step, event) {
+                    console.log(event);
+                    this.counter += step;
+                },
+                getCoords: function(event) {
+                    this.x = event.clientX;
+                    this.y = event.clientY;
+                },
+                keypress: function(event) {
+                    this.input = event.target.value;
                 }
             }
         });
