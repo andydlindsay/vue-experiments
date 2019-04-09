@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Reactive Vue</title>
+
+    <script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="name">
+        <p>{{ name }}</p>
+        <button v-on:click="buttonClick">Default</button>
+        <hr>
+
+        <button v-on:click="counter++">Increase</button>
+        <button v-on:click="counter--">Decrease</button>
+        <p>Counter: {{ counter }}</p>
+        <p>Result: {{ output }}</p>
+        <p>Watched Result: {{ watchedResult }}</p>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                name: 'Max',
+                counter: 0,
+                result: '',
+                watchedResult: ''
+            },
+            methods: {
+                buttonClick: function() {
+                    this.name = 'Max';
+                }
+            },
+            computed: {
+                output: function() {
+                    return this.counter > 5 ? 'greater than 5' : 'less than or equal to 5';
+                }
+            },
+            watch: {
+                counter: function() {
+                    this.watchedResult = this.counter > 5 ? 'greater than 5' : 'less than or equal to 5';
+                    const vm = this;
+                    setTimeout(() => {
+                        vm.counter = 0;
+                    }, 2000);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
