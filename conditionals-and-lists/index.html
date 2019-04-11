@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Conditionals and Lists</title>
+
+    <script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <p v-if="show">You can see me!</p>
+            <p v-if="isVisible">Do you also see me?</p>
+            <p v-else>Now you see me!</p>
+            <button @click="isVisible = !isVisible">Switch</button>
+        </div>
+
+        <hr>
+
+        <!-- group elements together inside a template element -->
+        <template v-if="isVisible">
+            <h1>Hello there</h1>
+            <p>I think that I should be visible</p>
+        </template>
+
+        <div v-for="person in people">
+            <p :style="{ backgroundColor: person.color }">{{ person.name }} is {{ person.age }} years old!</p>
+        </div>
+
+        <hr>
+
+        <ul v-show="!isVisible">
+            <li v-for="(ingredient, index) in ingredients" :key="ingredient">{{ index + 1 }}: {{ ingredient }}</li>
+        </ul>
+
+        <hr>
+
+        <div>
+            <span v-for="n in 10">{{ n }} </span>
+        </div>
+
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                show: true,
+                isVisible: false,
+                ingredients: ['canned tomatoes', 'live salmon', 'cucumbers'],
+                people: [
+                    { name: 'Stacy', age: 37, color: 'red' },
+                    { name: 'Tony', age: 26, color: 'blue' },
+                    { name: 'Ashley', age: 42, color: 'grey' }
+                ]
+            },
+            methods: {
+
+            }
+        });
+    </script>
+</body>
+</html>
