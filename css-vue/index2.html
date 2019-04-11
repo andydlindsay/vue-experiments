@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>CSS Vue 2</title>
+
+    <script type="text/javascript" src="vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <div 
+            class="demo"
+            :style="{ backgroundColor: color }"
+        ></div>
+        <div
+            class="demo"
+        ></div>
+        <div
+            class="demo" 
+        ></div>
+        <hr>
+        <input type="text" v-model="color">
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                color: 'blue'
+            }
+        });
+    </script>
+</body>
+</html>

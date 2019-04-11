@@ -1,0 +1,19 @@
+.demo {
+    width: 100px;
+    height: 100px;
+    background-color: lightseagreen;
+    display: inline-block;
+    margin: 10px;
+}
+
+.yellow {
+    background-color: greenyellow;
+}
+
+.green {
+    background-color: darkgreen;
+}
+
+.pink {
+    background-color: hotpink;
+}
