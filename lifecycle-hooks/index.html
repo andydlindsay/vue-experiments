@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lifecycle Hooks</title>
+    <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{ title }}</h1>
+        <button @click="title = 'Party Time!'">Click Me!</button>
+    </div>
+    <button onclick="vm.$destroy()">Destroy</button>
+    <script src="app.js"></script>
+</body>
+
+</html>
