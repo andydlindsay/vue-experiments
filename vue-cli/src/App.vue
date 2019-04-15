@@ -1,17 +1,20 @@
 <template>
   <div id="app">
     <h1>{{ msg }}</h1>
+    <p>Server Status: {{ status }}</p>
+    <Home></Home>
   </div>
 </template>
 
 <script>
-export default {
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
+    export default {
+        data () {
+            return {
+                msg: 'Welcome to Your Vue.js App',
+                status: 'Critcal'
+            }
+        }
     }
-  }
-}
 </script>
 
 <style scoped>
